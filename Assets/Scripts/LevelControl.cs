@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelControl : MonoBehaviour
 {
 	[SerializeField] GameObject loseUI;
+    [SerializeField] GameObject startUI;
 
     private void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         loseUI.SetActive(false);
+        startUI.SetActive(true);
     }
     public void Loser()
     {
@@ -21,5 +23,12 @@ public class LevelControl : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+    }
+
+    public void StartGame()
+    {
+        startUI.SetActive(false);
+        Time.timeScale = 1;
     }
 }

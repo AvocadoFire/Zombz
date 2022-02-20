@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour
         playerController.Move(velocity * Time.deltaTime);
     }
 
-    private void OnBecameInvisible()
-    {
-        FindObjectOfType<LevelControl>().Loser();
-    }
+    //private void OnBecameInvisible()
+    //{
+    //    FindObjectOfType<LevelControl>().Loser();
+    //}
 }
