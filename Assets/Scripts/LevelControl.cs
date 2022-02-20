@@ -9,6 +9,7 @@ public class LevelControl : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         loseUI.SetActive(false);
     }
     public void Loser()

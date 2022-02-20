@@ -53,4 +53,9 @@ public class PlayerController : MonoBehaviour
         //vertical velocity        
         playerController.Move(velocity * Time.deltaTime);
     }
+
+    private void OnBecameInvisible()
+    {
+        FindObjectOfType<LevelControl>().Loser();
+    }
 }

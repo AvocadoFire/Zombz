@@ -29,8 +29,12 @@ public class Combat : MonoBehaviour
         {
             Debug.Log("Hit enemy +1");
             Good();
-            Destroy(target.transform.parent.gameObject);
-            FindObjectOfType<GoreExplosion>().Explode();
+            target.GetComponentInParent<GoreExplosion>().Explode();
+
+            //Destroy(target.transform.parent.gameObject);
+            //FindObjectOfType<GoreExplosion>().Explode();
+
+            collided = false;
 
         }
         else if (Input.GetMouseButtonDown(0) && !collided)
@@ -81,6 +85,10 @@ public class Combat : MonoBehaviour
     {
         fearSlider.value = fearSlider.value + 1;
         angerSlider.value = angerSlider.value - 1;
+        if (fearSlider.value == 0)
+        {
+            FindObjectOfType<LevelControl>().Loser();
+        }
     }
 
     void Good()
