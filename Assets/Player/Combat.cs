@@ -14,11 +14,16 @@ public class Combat : MonoBehaviour
     bool collided = false;
     bool hitHazard = false;
 
+    [SerializeField] Score scoreObject;
+    [SerializeField] int pointsPer = 50;
+    int score;
+
     GameObject target;
  
 
     private void Start()
     {
+        scoreObject = FindObjectOfType<Score>();
         fearSlider.value = initialFear;
         angerSlider.value = initialAnger;
     }
@@ -26,6 +31,9 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
+        scoreObject.UpdateScore();
+        scoreObject.GetHighScore();
+
         if (Input.GetMouseButtonDown(0) && collided)
         {
             Debug.Log("Hit enemy +1");
@@ -99,5 +107,8 @@ public class Combat : MonoBehaviour
     {
         fearSlider.value = fearSlider.value - 1;
         angerSlider.value = angerSlider.value + 1;
+
+        scoreObject.AddScore(score + (pointsPer * (int)angerSlider.value));
+
     }
 }
