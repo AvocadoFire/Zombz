@@ -14,18 +14,23 @@ public class LevelControl : MonoBehaviour
 
     private void Start()
     {   
-        print(isStarted);
-        
         player = FindObjectOfType<PlayerController>();
+        startUI.SetActive(!isStarted);
+        player.gameObject.SetActive(isStarted);
+        loseUI.SetActive(false);
+
         if (!isStarted)
         {
-            Time.timeScale = 0;
-            loseUI.SetActive(false);
-            startUI.SetActive(true);
-            player.gameObject.SetActive(false);
+            Time.timeScale = 0;        
+            isStarted = true;
         }
-        isStarted = true;
-        print(isStarted);
+        else
+        {
+            Time.timeScale = 1;
+        }
+
+
+
 
     }
     public void Loser()
