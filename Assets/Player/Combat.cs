@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;    
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Combat : MonoBehaviour
 {
@@ -9,12 +11,11 @@ public class Combat : MonoBehaviour
     [SerializeField] Slider angerSlider;
     [SerializeField] int initialFear = 3;
     [SerializeField] int initialAnger = 0;
-    //[SerializeField] GameObject explosion;
     bool collided = false;
     bool hitHazard = false;
 
-
     GameObject target;
+ 
 
     private void Start()
     {
@@ -84,11 +85,14 @@ public class Combat : MonoBehaviour
     void Bad()
     {
         fearSlider.value = fearSlider.value + 1;
+
         angerSlider.value = angerSlider.value - 1;
-        if (fearSlider.value == 0)
+
+        if (fearSlider.value == 10)
         {
             FindObjectOfType<LevelControl>().Loser();
         }
+
     }
 
     void Good()

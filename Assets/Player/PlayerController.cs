@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundedCheck = .01f;
     [SerializeField] float gravity = -50f;
 	CharacterController playerController;
+    LevelControl levelController;
+
     Vector3 velocity;
     bool isGrounded;
     float horizontalInput;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<CharacterController>();
+        levelController = FindObjectOfType<LevelControl>();
+
     }
 
     private void Update()
@@ -54,8 +58,8 @@ public class PlayerController : MonoBehaviour
         playerController.Move(velocity * Time.deltaTime);
     }
 
-    //private void OnBecameInvisible()
-    //{
-    //    FindObjectOfType<LevelControl>().Loser();
-    //}
+    private void OnBecameInvisible()
+    {
+        levelController.Loser();
+    }
 }
