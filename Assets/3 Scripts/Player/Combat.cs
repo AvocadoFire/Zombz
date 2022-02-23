@@ -79,8 +79,8 @@ public class Combat : MonoBehaviour
         {
             print("Avoided hazard +1");
             Good();
-            hitHazard = false;
         }
+        hitHazard = false;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -92,9 +92,12 @@ public class Combat : MonoBehaviour
 
     void Bad()
     {
-        fearSlider.value = fearSlider.value + 1;
-
+        if(angerSlider.value > 0)
+        {
         angerSlider.value = angerSlider.value - 1;
+        }
+
+        fearSlider.value = fearSlider.value + 1;
 
         if (fearSlider.value == 10)
         {
@@ -105,8 +108,15 @@ public class Combat : MonoBehaviour
 
     void Good()
     {
+        if(fearSlider.value > 0)
+        {
         fearSlider.value = fearSlider.value - 1;
+        }
+
+        if(angerSlider.value < 10)
+        {
         angerSlider.value = angerSlider.value + 1;
+        }
 
         scoreObject.AddScore(score + (pointsPer * (int)angerSlider.value));
 

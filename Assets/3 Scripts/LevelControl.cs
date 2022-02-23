@@ -28,10 +28,6 @@ public class LevelControl : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-
-
-
-
     }
     public void Loser()
     {

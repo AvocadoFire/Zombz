@@ -606,7 +606,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1501742374}
   m_FillRect: {fileID: 217562406}
   m_HandleRect: {fileID: 1501742373}
@@ -4824,7 +4824,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1604462959}
   m_FillRect: {fileID: 1942283436}
   m_HandleRect: {fileID: 1604462958}
@@ -5361,7 +5361,7 @@ GameObject:
   - component: {fileID: 1687258586}
   - component: {fileID: 1687258583}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera and UI
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
